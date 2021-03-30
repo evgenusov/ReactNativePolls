@@ -7,7 +7,6 @@ import styled from 'styled-components/native';
 import { COLORS } from '../../constants/colors';
 import { ROUTES } from '../../constants/routes';
 import { TextField } from '../TextField';
-import { Text } from '../Typography';
 
 export const ChatFooterView = styled.View`
   flex: 1;

@@ -3,12 +3,16 @@
  */
 
 import 'react-native';
-import React from 'react';
-import App from '../App';
+import { stringUppercase } from '../src/utils/str';
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+it('should check uppercase valid ', () => {
+  expect(stringUppercase('word')).toEqual('WORD');
+});
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+it('should check uppercase invalid ', () => {
+  expect(stringUppercase('мир')).toEqual('');
+});
+
+it('should uppercase lowkey', () => {
+  expect(stringUppercase('lowkey')).toEqual('LOWKEY');
 });

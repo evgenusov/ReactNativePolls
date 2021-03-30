@@ -1,6 +1,6 @@
 # ReactNativePoll
 
-This test challenge for Lowkey.
+This is test challenge for Lowkey.
 
 ## How to start
 
