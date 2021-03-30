@@ -1,22 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from '@sentry/react-native';
+import { IUser } from '../../entities/user';
+import { v4 as uuid } from 'uuid';
 
 type UserState = {
-  currentUser: User | null;
+  currentUser: IUser;
 };
+
 export const initialState: UserState = {
-  currentUser: null,
+  currentUser: {
+    uid: uuid(),
+    username: 'Current User',
+    avatar: 'https://picsum.photos/seed/picsum/64',
+  },
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {
-    fakeLogin(state, action: PayloadAction<User>) {
-      state.currentUser = action.payload;
-    },
-  },
+  reducers: {},
 });
 
 export const userReducer = userSlice.reducer;
-export const userActions = userSlice.actions;

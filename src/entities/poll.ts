@@ -1,17 +1,24 @@
-export type UserPollChoice = {
+export interface IUserPollChoice {
   user_uid?: string;
   choice_uid: string;
   poll_uid: string;
-};
+}
 
-export type PollChoice = {
+export interface IPollOption {
   title: string;
   uid: string;
-};
+}
 
-export type Poll = {
+export interface IPoll {
   text: string;
   uid?: string;
   isAnon: boolean;
-  choices: PollChoice[];
-};
+  options: IPollOption[];
+}
+
+export interface IPollCreateForm {
+  text: string;
+  isAnon: boolean;
+  multiChoice: boolean; // not sure about that name
+  options: string[];
+}

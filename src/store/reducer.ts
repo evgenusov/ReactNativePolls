@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
-import { choicesReducer } from './choices/reducer';
-import { pollsReducer } from './polls/reducer';
+import { messagesReducer } from './chat/reducer';
 import { userReducer } from './user/reducer';
 
 export const rootReducer = combineReducers({
-  polls: pollsReducer,
-  choices: choicesReducer,
   user: userReducer,
+  messages: messagesReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

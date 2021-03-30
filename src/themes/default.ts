@@ -6,10 +6,14 @@ export const AppTheme = {
   ...DefaultNavigationTheme,
   ...DefaultPaperTheme,
   dark: true,
+  background_gradient: ['#2467F41A', '#14131B00', '#2467F41A'],
   colors: {
     ...DefaultNavigationTheme.colors,
     ...DefaultPaperTheme.colors,
     background: COLORS.primary_dark,
+    primary: COLORS.primary,
+    text: COLORS.white,
+    headerBackgroundColor: COLORS.dark,
   },
 };
 
