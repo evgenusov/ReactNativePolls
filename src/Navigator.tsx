@@ -3,7 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { ROUTES } from './constants/routes';
 import { CreatePollScreen } from './screens/CreatePollScreen';
 import { AppTheme } from './themes/default';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
@@ -22,6 +25,7 @@ const RootStack = () => {
         cardOverlayEnabled: true,
         gestureEnabled: true,
         headerShown: false,
+        ...TransitionPresets.ModalPresentationIOS,
       }}>
       <Stack.Screen name={ROUTES.CHAT} component={ChatScreen} />
 

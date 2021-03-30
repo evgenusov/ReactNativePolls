@@ -15,6 +15,7 @@ const HeaderView = styled.View`
   min-height: 56px;
   align-items: center;
   padding-bottom: 3px;
+  padding-top: 3px;
 `;
 
 const HeaderLeft = styled.View`

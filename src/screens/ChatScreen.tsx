@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/native';
 import { ChatFooter } from '../components/chat/ChatFooter';
 import { ChatMessageFactory } from '../components/chat/ChatMessageFactory';
 import { Header } from '../components/CustomHeader';
+import { SizedBox } from '../components/Helpers';
 import { RoundedImage } from '../components/RoundedImage';
 import { IMessage } from '../entities/message';
 import { selectMessages } from '../store/chat/selector';
@@ -21,6 +22,8 @@ export const ChatScreenContainer = styled.View`
 export const ChatScreen = () => {
   const listRef = useRef<FlatList<IMessage> | null>();
   const messages = useSelector(selectMessages);
+
+  useEffect(() => {}, [messages]);
 
   const renderMessage = (item: ListRenderItemInfo<IMessage>) => {
     return (
@@ -46,7 +49,9 @@ export const ChatScreen = () => {
       <ChatScreenContainer>
         <FlatList
           ref={(ref) => (listRef.current = ref)}
+          ListHeaderComponent={<SizedBox height={35} />}
           data={messages}
+          inverted={true}
           keyExtractor={(item) => item.uid}
           renderItem={renderMessage}
         />

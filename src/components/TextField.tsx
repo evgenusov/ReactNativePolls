@@ -9,7 +9,7 @@ import { FormElementHeader } from './FormElementHeader';
 const FieldWrapper = styled.View`
   justify-content: center;
   background-color: ${COLORS.dark};
-  min-height: 35px;
+  min-height: 50px;
   padding: 0 20px;
   border-radius: 12px;
   font-size: 15px;
@@ -18,6 +18,7 @@ const FieldWrapper = styled.View`
 const TextInput = styled(RNTextInput)`
   font-family: 'Poppins-Regular';
   color: ${({ theme }: { theme: Theme }) => theme.colors.text};
+  padding: 0;
 `;
 
 interface TextFieldProps extends TextInputProps {
@@ -43,6 +44,7 @@ export const TextField = ({
   const _onChangeText = useCallback(
     (value: string) => {
       maxLength && SetCurrentLength(value.length);
+      onChangeText && onChangeText(value);
     },
     [onChangeText],
   );

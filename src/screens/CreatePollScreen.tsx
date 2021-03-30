@@ -1,8 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { KeyboardAvoidingView, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useDispatch } from 'react-redux';
 import { BackgroundGradient } from '../components/BackgroundGradient';
@@ -12,6 +11,7 @@ import { Container, SizedBox } from '../components/Helpers';
 import { PollContrstuctor } from '../components/PollConstructor';
 import { Switch } from '../components/Switch';
 import { TextField } from '../components/TextField';
+import { Text } from '../components/Typography';
 import { ROUTES } from '../constants/routes';
 import { IPollCreateForm } from '../entities/poll';
 import { messagesActions } from '../store/chat/reducer';
@@ -34,8 +34,12 @@ export const CreatePollScreen = () => {
     navigation.navigate(ROUTES.CHAT);
   }, [poll]);
 
-  useEffect(() => {
+  const validateForm = () => {
     SetIsValidForm(poll.text.length > 0 && poll.options.length > 0);
+  };
+
+  useEffect(() => {
+    validateForm();
   }, [poll]);
 
   const onChangePollText = (text: string) => {
@@ -69,7 +73,7 @@ export const CreatePollScreen = () => {
   return (
     <BackgroundGradient>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={100}
         style={styles.keyboardAvoidingView}>
         <ScrollView bounces={false}>
           <Header
@@ -83,12 +87,12 @@ export const CreatePollScreen = () => {
               </Button>
             }
           />
+          <SizedBox height={35} />
           <Container>
             <TextField
               label="Question"
               maxLength={140}
               value={poll.text}
-              wrapperStyle={styles.input}
               placeholder={'Ask a question'}
               multiline={true}
               onChangeText={onChangePollText}
@@ -123,9 +127,6 @@ export const CreatePollScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  input: {
-    maxHeight: 50,
-  },
   keyboardAvoidingView: {
     flex: 1,
   },

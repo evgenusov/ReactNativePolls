@@ -11,7 +11,6 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { RootNavigator } from './src/Navigator';
-import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as StoreProvider } from 'react-redux';
 import { AppTheme } from './src/themes/default';
 import { enableScreens } from 'react-native-screens';
@@ -23,12 +22,10 @@ enableScreens();
 const App = () => {
   return (
     <StoreProvider store={store}>
-      <PaperProvider theme={AppTheme}>
-        <ThemeProvider theme={AppTheme}>
-          <StatusBar barStyle="light-content" />
-          <RootNavigator />
-        </ThemeProvider>
-      </PaperProvider>
+      <ThemeProvider theme={AppTheme}>
+        <StatusBar barStyle="light-content" />
+        <RootNavigator />
+      </ThemeProvider>
     </StoreProvider>
   );
 };

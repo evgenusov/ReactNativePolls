@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Switch as RNPSwitch } from 'react-native-paper';
+import { Switch as RNSwitch } from 'react-native';
 import styled from 'styled-components/native';
 import { COLORS } from '../constants/colors';
 import { MediumText } from './Typography';
@@ -56,7 +56,7 @@ export const Switch = ({ icon, text, onChange, value }: SwithProps) => {
       <SwitchViewText>
         <MediumText>{text}</MediumText>
       </SwitchViewText>
-      <RNPSwitch
+      <RNSwitch
         onValueChange={onChangeValue}
         value={statedValue}
         thumbColor={statedValue ? COLORS.white : COLORS.gray}
