@@ -11,3 +11,5 @@ This test challenge for Lowkey.
 ```
 
 ## How it looks
+
+![iOS Simulator](https://github.com/evgenusov/ReactNativePolls/blob/main/gifs/ios.gif 'iOS Simulator')
