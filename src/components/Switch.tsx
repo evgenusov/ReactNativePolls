@@ -30,6 +30,15 @@ type SwithProps = {
   value?: boolean;
 };
 
+/**
+ * Switch component
+ *
+ * @param icon - JSX Component for icon
+ * @param text – text for label of swith
+ * @param onChange - callback for trigger on changes
+ * @param value - initial value
+ * @returns
+ */
 export const Switch = ({ icon, text, onChange, value }: SwithProps) => {
   const [statedValue, SetStatedVavlue] = useState(value);
 
@@ -50,6 +59,7 @@ export const Switch = ({ icon, text, onChange, value }: SwithProps) => {
       <RNPSwitch
         onValueChange={onChangeValue}
         value={statedValue}
+        thumbColor={statedValue ? COLORS.white : COLORS.gray}
         trackColor={{
           true: COLORS.primary,
           false: COLORS.gray,

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components/native';
 import { Button } from './Button';
 import { FormElementHeader } from './FormElementHeader';
-import { PollOptionsTextInput } from './PollChoice';
+import { PollOptionsTextInput } from './PolOptions';
 
 const ChoicesView = styled.View`
   flex-direction: column;
@@ -14,6 +14,13 @@ type PollChoicesType = {
   onChange?: (choices: string[]) => void;
 };
 
+/**
+ * Component for adding poll options
+ *
+ * @param initChoices – initial choices
+ * @param maxChoice - max count of options
+ * @returns
+ */
 export const PollContrstuctor = ({
   initChoices = [],
   maxChoice = 0,
@@ -25,7 +32,7 @@ export const PollContrstuctor = ({
   useEffect(() => {
     onChange && onChange(choices.filter((choice) => !!choice));
     SetAllowPush(maxChoice > 0 ? choices.length < maxChoice : true);
-  }, [choices]);
+  }, [choices, maxChoice]);
 
   const appendChoice = useCallback(() => {
     SetChoices([...choices, '']);

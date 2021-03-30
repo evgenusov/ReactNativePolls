@@ -18,6 +18,9 @@ type FormElementHeaderProps = {
   maxLength?: number;
 };
 
+/**
+ * Component for form's field with label and max length status
+ */
 export const FormElementHeader = ({
   label,
   currentLength,

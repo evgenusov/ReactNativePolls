@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer, Theme, useTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { ROUTES } from './constants/routes';
 import { CreatePollScreen } from './screens/CreatePollScreen';
 import { AppTheme } from './themes/default';

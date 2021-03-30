@@ -1,6 +1,5 @@
-import { useTheme } from '@react-navigation/native';
-import React, { RefAttributes, useCallback, useState } from 'react';
-import { FlexStyle, StyleProp, View, ViewProps } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { FlexStyle } from 'react-native';
 import { TextInputProps, TextInput as RNTextInput } from 'react-native';
 import styled from 'styled-components/native';
 import { COLORS } from '../constants/colors';
@@ -23,34 +22,44 @@ const TextInput = styled(RNTextInput)`
 
 interface TextFieldProps extends TextInputProps {
   label?: string;
-  maxLength?: number;
-  multiline?: boolean;
   wrapperStyle?: FlexStyle;
 }
 
-export const TextField = (props: TextFieldProps) => {
+/**
+ * This is wrapper for React Native TextInput all documenation and fields on url https://reactnative.dev/docs/textinput
+ *
+ *  @param wrapperStyle – style for input's container
+ * @param label – text for label
+ */
+export const TextField = ({
+  label,
+  maxLength,
+  wrapperStyle,
+  onChangeText,
+  ...props
+}: TextFieldProps) => {
   const [currentLength, SetCurrentLength] = useState(0);
 
-  const onChangeText = useCallback(
+  const _onChangeText = useCallback(
     (value: string) => {
-      props.maxLength && SetCurrentLength(value.length);
+      maxLength && SetCurrentLength(value.length);
     },
-    [props.onChangeText],
+    [onChangeText],
   );
 
   return (
     <>
-      {props.label && (
+      {label && (
         <FormElementHeader
-          label={props.label}
-          maxLength={props.maxLength}
+          label={label}
+          maxLength={maxLength}
           currentLength={currentLength}
         />
       )}
-      <FieldWrapper style={props.wrapperStyle}>
+      <FieldWrapper style={wrapperStyle}>
         <TextInput
           placeholderTextColor={COLORS.gray}
-          onChangeText={onChangeText}
+          onChangeText={_onChangeText}
           underlineColorAndroid="transparent"
           textAlignVertical="center"
           {...props}

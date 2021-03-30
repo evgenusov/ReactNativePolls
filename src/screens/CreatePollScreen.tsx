@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useState, useEffect } from 'react';
+import { StyleSheet } from 'react-native';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Text } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -69,7 +70,7 @@ export const CreatePollScreen = () => {
     <BackgroundGradient>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={{ flex: 1 }}>
+        style={styles.keyboardAvoidingView}>
         <ScrollView bounces={false}>
           <Header
             title={'New Poll'}
@@ -87,9 +88,7 @@ export const CreatePollScreen = () => {
               label="Question"
               maxLength={140}
               value={poll.text}
-              wrapperStyle={{
-                minHeight: 50,
-              }}
+              wrapperStyle={styles.input}
               placeholder={'Ask a question'}
               multiline={true}
               onChangeText={onChangePollText}
@@ -122,3 +121,12 @@ export const CreatePollScreen = () => {
     </BackgroundGradient>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    maxHeight: 50,
+  },
+  keyboardAvoidingView: {
+    flex: 1,
+  },
+});

@@ -37,6 +37,13 @@ interface PollOptionsFieldsProps {
   value?: string;
 }
 
+/**
+ * Component for poll options constuctor
+ *
+ * @param onChangeText - callback for text changing
+ * @param onRemoveTouch - callback for touch on remove button
+ * @param value - value for text field
+ */
 export const PollOptionsTextInput = ({
   onChangeText,
   onRemoveTouch,

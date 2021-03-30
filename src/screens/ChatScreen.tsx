@@ -1,15 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useRef } from 'react';
-import { useLayoutEffect } from 'react';
+import React, { useRef } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/native';
 import { ChatFooter } from '../components/chat/ChatFooter';
 import { ChatMessageFactory } from '../components/chat/ChatMessageFactory';
 import { Header } from '../components/CustomHeader';
-import { Container, SizedBox } from '../components/Helpers';
 import { RoundedImage } from '../components/RoundedImage';
-import { UserAvatar } from '../components/UserAvatar';
 import { IMessage } from '../entities/message';
 import { selectMessages } from '../store/chat/selector';
 

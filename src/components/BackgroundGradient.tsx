@@ -11,6 +11,11 @@ type BackgroundGradientProps = {
 const StyledGradient = styled(LinearGradient)`
   flex: 1;
 `;
+
+/**
+ * Component for background gradient
+ * @returns
+ */
 export const BackgroundGradient = (props: BackgroundGradientProps) => {
   const theme = useTheme() as Theme;
 

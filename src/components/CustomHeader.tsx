@@ -54,6 +54,10 @@ type HeaderProps = {
   backgroundColor?: string;
 };
 
+/**
+ * Custom header component with better customization than standart
+ * @returns
+ */
 export const Header = (props: HeaderProps) => {
   const theme = useTheme() as Theme;
   const navigation = useNavigation();

@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
 import { COLORS } from '../constants/colors';
-import { MediumText, Text } from './Typography';
+import { MediumText } from './Typography';
 
 interface ButtonProps extends TouchableOpacityProps {
   children: React.ReactElement | string;

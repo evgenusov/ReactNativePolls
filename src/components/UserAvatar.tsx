@@ -8,6 +8,9 @@ type UserAvatarProps = {
   radius?: number;
 };
 
+/**
+ * Wrapper for RoundedImage for render users avatars
+ */
 export const UserAvatar = ({ user, size, radius = 15 }: UserAvatarProps) => {
   return <RoundedImage src={user.avatar} size={size} radius={radius} />;
 };
