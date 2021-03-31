@@ -1,6 +1,6 @@
 import React from 'react';
 import { IChatMessageProps, MessageTypeEnum } from '../../entities/message';
-import { ChatMessage } from './messages/ChatMessage/ChatMessage';
+import { ChatMessage } from './messages/ChatMessage';
 import { ChatMessagePoll } from './messages/ChatMessagePoll/ChatMessagePoll';
 
 /**

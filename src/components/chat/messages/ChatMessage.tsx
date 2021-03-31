@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { IChatMessageProps } from '../../../../entities/message';
-import { SemiBoldText, Text } from '../../../Typography';
-import { ChatMessageAvatar } from '../ChatMessageAvatar';
+import { IChatMessageProps } from '../../../entities/message';
+import { SemiBoldText, Text } from '../../Typography';
+import { ChatMessageAvatar } from './ChatMessageAvatar';
 
 export const ChatMessageView = styled.View`
   flex-direction: row;
