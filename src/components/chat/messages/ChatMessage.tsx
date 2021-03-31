@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { COLORS } from '../../../constants/colors';
 import { IChatMessageProps } from '../../../entities/message';
 import { SemiBoldText, Text } from '../../Typography';
 import { ChatMessageAvatar } from './ChatMessageAvatar';
@@ -22,7 +23,7 @@ export const ChatMessageContent = styled.View`
 `;
 
 export const ChatMessageUsername = styled(SemiBoldText)`
-  color: #7e7a9a;
+  color: ${COLORS.gray};
   font-size: 12px;
 `;
 

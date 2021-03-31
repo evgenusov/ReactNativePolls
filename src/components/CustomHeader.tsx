@@ -4,9 +4,8 @@ import { StatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styled from 'styled-components/native';
-import { COLORS } from '../constants/colors';
 import { Theme } from '../themes/default';
-import { SemiBoldText, Text } from './Typography';
+import { SemiBoldText, SubText } from './Typography';
 
 const HeaderView = styled.View`
   flex-direction: row;
@@ -38,9 +37,8 @@ const HeaderTitle = styled(SemiBoldText)`
   text-align: center;
 `;
 
-const HeaderSubtitle = styled(Text)`
+const HeaderSubtitle = styled(SubText)`
   font-size: 12px;
-  color: ${COLORS.gray};
   text-align: center;
 `;
 

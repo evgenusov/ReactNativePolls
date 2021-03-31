@@ -6,6 +6,7 @@ import { SemiBoldText } from './Typography';
 const FormElementLabel = styled(SemiBoldText)`
   color: ${COLORS.gray};
 `;
+
 const FormElementView = styled.View`
   height: 32px;
   justify-content: space-between;

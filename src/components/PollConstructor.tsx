@@ -24,13 +24,13 @@ type PollChoicesType = {
 export const PollContrstuctor = ({
   initChoices = [],
   maxChoice = 0,
-  onChange,
+  onChange = () => {},
 }: PollChoicesType) => {
   const [choices, SetChoices] = useState<string[]>(initChoices);
   const [allowPush, SetAllowPush] = useState(true);
 
   useEffect(() => {
-    onChange && onChange(choices.filter((choice) => !!choice));
+    onChange(choices.filter((choice) => !!choice));
     SetAllowPush(maxChoice > 0 ? choices.length < maxChoice : true);
   }, [choices, maxChoice]);
 

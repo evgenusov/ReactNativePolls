@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { COLORS } from '../constants/colors';
 import { Theme } from '../themes/default';
 
 type BaseTextProps = {
@@ -27,4 +28,8 @@ export const MediumText = styled(BaseText)`
 
 export const SmallText = styled(Text)`
   font-size: 10px;
+`;
+
+export const SubText = styled(Text)`
+  color: ${COLORS.gray};
 `;
