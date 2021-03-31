@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { COLORS } from '../constants/colors';
 import { Theme } from '../themes/default';
+import RNParsedText from 'react-native-parsed-text';
 
 type BaseTextProps = {
   theme: Theme;
@@ -32,4 +33,9 @@ export const SmallText = styled(Text)`
 
 export const SubText = styled(Text)`
   color: ${COLORS.gray};
+`;
+
+export const ParsedText = styled(RNParsedText)`
+  font-family: 'Poppins-Regular';
+  color: ${({ theme }: BaseTextProps) => theme.colors.text};
 `;
