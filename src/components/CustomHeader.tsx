@@ -64,12 +64,12 @@ export const Header = (props: HeaderProps) => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
 
-  const canBoBack = navigation.canGoBack();
+  const canGoBack = navigation.canGoBack();
 
   const { hasBack = true, onBack = () => navigation.goBack() } = props;
 
   const {
-    left = hasBack && canBoBack && (
+    left = hasBack && canGoBack && (
       <Icon
         name={'close'}
         size={20}
