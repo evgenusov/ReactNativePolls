@@ -37,22 +37,14 @@ export const Button = ({ mode = 'filled', ...props }: ButtonProps) => {
   const ButtonTextComponent = props.disabled
     ? StyledButtonTextDisabled
     : StyledButtonText;
-  switch (mode) {
-    case 'filled':
-      return (
-        <DefaultButton {...props}>
-          <ButtonTextComponent selectable={false}>
-            {props.children}
-          </ButtonTextComponent>
-        </DefaultButton>
-      );
-    default:
-      return (
-        <LinkButton {...props}>
-          <ButtonTextComponent selectable={false}>
-            {props.children}
-          </ButtonTextComponent>
-        </LinkButton>
-      );
-  }
+
+  const ButtonComponent = mode === 'filled' ? DefaultButton : LinkButton;
+
+  return (
+    <ButtonComponent {...props}>
+      <ButtonTextComponent selectable={false}>
+        {props.children}
+      </ButtonTextComponent>
+    </ButtonComponent>
+  );
 };
